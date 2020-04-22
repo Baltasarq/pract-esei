@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Esei-Pract</title>
+</head>
+<body>
+    {% if asignaturas.count() > 0 %}
+        {% for asignatura in asignaturas %}
+            (<a href="/asignatura/elimina?id={{ asignatura.key.urlsafe() }}">del</a>)
+            (<a href="/asignatura/modifica?id={{ asignatura.key.urlsafe() }}">modif</a>)
+            (<a href="/proyectos/list?id={{ asignatura.key.urlsafe() }}">prys</a>)
+            <b>{{ asignatura.curso }}</b> {{ asignatura.nombre }}
+        {% endfor %}
+    {% else %}
+        <p><b>No hay asignaturas registradas.</b></p>
+    {% endif %}
+
+    <a href="/asignaturas/nueva">Nueva asignatura</a>
+</body>
+</html>
