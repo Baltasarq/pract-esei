@@ -12,6 +12,9 @@ handlers:
 - url: /
   script: handlers.main.app
 
+- url: /asignaturas/nueva
+  script: handlers.asignaturas.nueva.app
+
 libraries:
 - name: webapp2
   version: "2.5.2"

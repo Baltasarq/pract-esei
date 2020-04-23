@@ -5,6 +5,8 @@
     <title>Esei-Pract</title>
 </head>
 <body>
+    <h1>Asignaturas</h1>
+
     {% if asignaturas.count() > 0 %}
         {% for asignatura in asignaturas %}
             (<a href="/asignatura/elimina?id={{ asignatura.key.urlsafe() }}">del</a>)
@@ -16,6 +18,8 @@
         <p><b>No hay asignaturas registradas.</b></p>
     {% endif %}
 
-    <a href="/asignaturas/nueva">Nueva asignatura</a>
+    <p>
+        <a href="/asignaturas/nueva">Nueva asignatura</a>
+    </p>
 </body>
 </html>

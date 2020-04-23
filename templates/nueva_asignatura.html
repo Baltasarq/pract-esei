@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pract-Esei: Nueva asignatura</title>
+
+    <script>
+        function check()
+        {
+            const edNombre = document.getElementById( "edNombre" );
+            const edCurso = document.getElementById( "edNombre" );
+
+            return ( edNombre.value.trim().length > 0
+                  && edCurso.value.trim().length > 0 );
+        }
+    </script>
+</head>
+<body>
+    <h1>Nueva asignatura</h1>
+    <form id="frmNuevaAsignatura"
+           method="post"
+           action="/asignaturas/nueva"
+           onsubmit="return check()">
+
+        <p>
+        <label for="edCurso">Curso</label>
+        <input type="number" id="edCurso" name="edCurso"
+                value="2020"
+                min="2000"
+                step="1" />
+        </p>
+
+        <p>
+        <label for="edNombre">Nombre</label>
+        <input type="text" id="edNombre" name="edNombre"
+               placeholder="Aplicaciones interesantes" />
+        </p>
+
+        <p><input type="submit" value="Crear"></p>
+    </form>
+</body>
+</html>
