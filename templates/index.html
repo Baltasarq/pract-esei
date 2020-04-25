@@ -1,25 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Esei-Pract</title>
-</head>
-<body>
-    <h1>Asignaturas</h1>
+{% extends "esqueleto.html" %}
 
-    {% if asignaturas.count() > 0 %}
-        {% for asignatura in asignaturas %}
-            (<a href="/asignatura/elimina?id={{ asignatura.key.urlsafe() }}">del</a>)
-            (<a href="/asignatura/modifica?id={{ asignatura.key.urlsafe() }}">modif</a>)
-            (<a href="/proyectos/list?id={{ asignatura.key.urlsafe() }}">prys</a>)
-            <b>{{ asignatura.curso }}</b> {{ asignatura.nombre }}
-        {% endfor %}
-    {% else %}
-        <p><b>No hay asignaturas registradas.</b></p>
-    {% endif %}
+{% block contenido %}
+<h2>Asignaturas</h2>
 
-    <p>
-        <a href="/asignaturas/nueva">Nueva asignatura</a>
-    </p>
-</body>
-</html>
+{% if asignaturas.count() > 0 %}
+    {% for asignatura in asignaturas %}
+        (<a href="/asignatura/elimina?id={{ asignatura.key.urlsafe() }}">supr</a>)
+        (<a href="/asignatura/modifica?id={{ asignatura.key.urlsafe() }}">modif</a>)
+        (<a href="/proyectos/list?id={{ asignatura.key.urlsafe() }}">prys</a>)
+        {% include "entrada_asignatura.html" %}
+    {% endfor %}
+{% else %}
+    <p><b>No hay asignaturas registradas.</b></p>
+{% endif %}
+
+<p>
+    <a href="/asignaturas/nueva">Nueva asignatura</a>
+</p>
+{% endblock %}
