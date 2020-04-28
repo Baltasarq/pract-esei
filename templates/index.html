@@ -5,9 +5,9 @@
 
 {% if asignaturas.count() > 0 %}
     {% for asignatura in asignaturas %}
-        (<a href="/asignatura/elimina?id={{ asignatura.key.urlsafe() }}">supr</a>)
-        (<a href="/asignatura/modifica?id={{ asignatura.key.urlsafe() }}">modif</a>)
-        (<a href="/proyectos/list?id={{ asignatura.key.urlsafe() }}">prys</a>)
+        (<a href="/asignaturas/elimina?id={{ asignatura.key.urlsafe() }}">supr</a>)
+        (<a href="/asignaturas/modifica?id={{ asignatura.key.urlsafe() }}">modif</a>)
+        (<a href="/proyectos/lista?asg={{ asignatura.key.urlsafe() }}">prys</a>)
         {% include "entrada_asignatura.html" %}
     {% endfor %}
 {% else %}
