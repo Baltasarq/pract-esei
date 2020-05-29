@@ -24,6 +24,6 @@ class Proyecto(ndb.Model):
         if id_asg:
             clave_asignatura = ndb.Key(urlsafe=id_asg)
             proyectos = Proyecto.query(Proyecto.clave_asignatura == clave_asignatura)
-            return proyectos
+            return (clave_asignatura.get(), proyectos)
         else:
             print("ERROR: asignatura no encontrada")

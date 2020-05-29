@@ -2,18 +2,20 @@
 
 {% block contenido %}
 <h2>Proyectos</h2>
+<h3>{{ asignatura.nombre }}({{ asignatura.curso }})</h3>
 
 {% if proyectos.count() > 0 %}
     {% for proyecto in proyectos %}
         (<a href="/proyectos/elimina?id={{ proyecto.key.urlsafe() }}">supr</a>)
         (<a href="/proyectos/modifica?id={{ proyecto.key.urlsafe() }}">modif</a>)
         {% include "entrada_proyecto.html" %}
+        <br/>
     {% endfor %}
 {% else %}
     <p><b>No hay proyectos registrados.</b></p>
 {% endif %}
 
 <p>
-    <a href="/proyectos/nueva">Nuevo proyecto</a>
+    <a href="/proyectos/nuevo?asg={{ asignatura.key.urlsafe() }}">Nuevo proyecto</a>
 </p>
 {% endblock %}

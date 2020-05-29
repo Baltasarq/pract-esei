@@ -1,0 +1,49 @@
+{% extends "esqueleto.html" %}
+
+{% block contenido %}
+<h2>Nuevo proyecto</h2>
+<form id="frmNuevoProyecto"
+       method="post"
+       action="/proyectos/nuevo?asg={{ clave_asignatura }}"
+       onsubmit="return check()">
+
+    <p>
+    <label for="edApellidos">Apellidos</label>
+    <input type="text" id="edApellidos" name="edApellidos"
+            placeholder="Apellidos..."/>
+    </p>
+
+    <p>
+    <label for="edNombre">Nombre</label>
+    <input type="text" id="edNombre" name="edNombre"
+            placeholder="Nombre..." />
+    </p>
+
+    <p>
+    <label for="edTitulo">Título</label>
+    <input type="text" id="edTitulo" name="edTitulo"
+           placeholder="Título..." />
+    </p>
+
+    <p>
+    <label for="edDesc">Descripción</label>
+    <textarea id="edDesc" name="edDesc" rows="2" cols="60"></textarea>
+    </p>
+
+    <p><input type="submit" value="Crear"></p>
+</form>
+
+<script>
+    function check()
+    {
+        const edApellidos = document.getElementById( "edApellidos" );
+        const edNombre = document.getElementById( "edNombre" );
+        const edTitulo = document.getElementById( "edTitulo" );
+
+
+        return ( edNombre.value.trim().length > 0
+              && edApellidos.value.trim().length > 0
+              && edTitulo.value.trim().length > 0 );
+    }
+</script>
+{% endblock %}

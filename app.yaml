@@ -21,6 +21,9 @@ handlers:
 - url: /proyectos/lista
   script: handlers.proyectos.lista.app
 
+- url: /proyectos/nuevo
+  script: handlers.proyectos.nuevo.app
+
 libraries:
 - name: webapp2
   version: "2.5.2"

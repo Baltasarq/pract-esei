@@ -6,10 +6,11 @@ from model.proyecto import Proyecto
 
 class ListaProyectosHandler(webapp2.RequestHandler):
     def get(self):
-        proyectos = Proyecto.recupera_para(self.request)
+        asignatura, proyectos = Proyecto.recupera_para(self.request)
 
         valores_plantilla = {
-            "proyectos": proyectos
+            "proyectos": proyectos,
+            "asignatura": asignatura
         }
 
         jinja = jinja2.get_jinja2(app=self.app)
